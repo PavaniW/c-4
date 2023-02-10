@@ -1,0 +1,10 @@
+3
+Pavani, Nishadi
+English
+50 65 70
+Nisal, Aravind
+Science
+90 80 75 85
+Parami, Perera
+Math
+75 45 50 75 70 85 95 90

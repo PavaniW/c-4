@@ -5,7 +5,7 @@ abstract class Student {
 
   static final String INPUT_FILE = "Input.txt";
   static final String OUTPUT_FILE = "Output.txt";
-  
+
   private String firstName;
   private String lastName;
   private String course;
@@ -156,7 +156,52 @@ class MathStudent extends Student {
 
     }
 
-	
+		//read data from the input file
+
+  		Scanner scanner = new Scanner(new File("Input.txt"));
+  		
+  		File file = new File("Input.txt");
+			BufferedReader br = new BufferedReader(new FileReader("Input.txt"));     
+			if (br.readLine() == null && file.length() == 0)
+			{
+			    System.out.println("No errors, and file empty");
+			    System.out.println(" ");
+			}                
+			else
+			{
+			    System.out.println("File contains something");
+			    System.out.println(" ");
+			}
+
+		int numStudents = Integer.parseInt(scanner.nextLine());
+
+		// read students' data
+		for (int i = 0; i < numStudents; i++) {
+		    String[] nameParts = scanner.nextLine().split(", ");
+		    String course = scanner.nextLine();
+		    String[] gradeParts = scanner.nextLine().split(" ");
+
+		    double[] grades = new double[gradeParts.length];
+		    for (int d = 0; d < gradeParts.length; d++) {
+			grades[d] = Double.parseDouble(gradeParts[d]);
+		    }
+
+		    Student student;
+		    if (course.equals("English")) {
+		      student = new EnglishStudent(nameParts[1], nameParts[0], grades[0], grades[1], grades[2]);
+		    } else if (course.equals("Science")) {
+		      student = new ScienceStudent(nameParts[1], nameParts[0], grades[0], grades[1], grades[2], grades[3]);
+		    } else if (course.equals("Math")) {
+		      student = new MathStudent(nameParts[1], nameParts[0], grades[0], grades[1], grades[2], grades[3], grades[4], grades[5], grades[6], grades[7], grades[8]);
+		    } else {
+		      continue;
+		    }
+
+
+		    students.add(student);
+		}
+
+
     //output file
     PrintWriter outputFile = new PrintWriter("output.txt");
 

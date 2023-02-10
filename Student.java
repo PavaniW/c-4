@@ -2,6 +2,10 @@ import java.util.*;
 import java.io.*;
 
 abstract class Student {
+
+  static final String INPUT_FILE = "Input.txt";
+  static final String OUTPUT_FILE = "Output.txt";
+  
   private String firstName;
   private String lastName;
   private String course;
